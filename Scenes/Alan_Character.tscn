@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dywchx2dkn88y"]
+[gd_scene load_steps=3 format=3 uid="uid://dywchx2dkn88y"]
+
+[ext_resource type="Script" uid="uid://dm5gl5gwnj42f" path="res://Scripts/alan_controller.gd" id="1_5b2de"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ygu6"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_5b2de")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
