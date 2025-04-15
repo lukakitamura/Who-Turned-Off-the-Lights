@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://lkfimylrmp5f"]
+[gd_scene load_steps=2 format=3 uid="uid://lkfimylrmp5f"]
+
+[ext_resource type="PackedScene" uid="uid://dq0cdr0as7md6" path="res://Scenes/Vacuum.tscn" id="1_0ba56"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Vacumm" parent="." instance=ExtResource("1_0ba56")]

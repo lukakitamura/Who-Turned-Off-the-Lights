@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0cdr0as7md6"]
+
+[ext_resource type="Script" uid="uid://cdlwc1j113jmw" path="res://vacumm_controller.gd" id="1_bfgji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gil3x"]
+radius = 19.4165
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgswy"]
+radius = 39.0512
+
+[node name="Vacumm" type="Node2D"]
+script = ExtResource("1_bfgji")
+
+[node name="Small Area" type="Area2D" parent="."]
+
+[node name="Small Area Collider" type="CollisionShape2D" parent="Small Area"]
+shape = SubResource("CircleShape2D_gil3x")
+
+[node name="Large Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Large Area"]
+shape = SubResource("CircleShape2D_jgswy")
