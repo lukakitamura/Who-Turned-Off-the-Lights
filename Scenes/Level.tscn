@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://lkfimylrmp5f"]
+[gd_scene load_steps=4 format=3 uid="uid://lkfimylrmp5f"]
 
 [ext_resource type="PackedScene" uid="uid://dq0cdr0as7md6" path="res://Scenes/Vacuum.tscn" id="1_0ba56"]
+[ext_resource type="PackedScene" uid="uid://c20woeuuwcl6q" path="res://Scenes/Small Ghost.tscn" id="1_8rbpu"]
+[ext_resource type="Script" uid="uid://i3up0yfi8ae3" path="res://Scripts/camera_controller.gd" id="1_vsvp5"]
 
 [node name="Level" type="Node2D"]
 
-[node name="Vacumm" parent="." instance=ExtResource("1_0ba56")]
+[node name="Small Ghost" parent="." instance=ExtResource("1_8rbpu")]
+position = Vector2(176, -118)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_vsvp5")
+
+[node name="Vacuum" parent="." instance=ExtResource("1_0ba56")]
+position = Vector2(-285, 3)
