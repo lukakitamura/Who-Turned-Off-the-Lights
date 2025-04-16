@@ -1,13 +1,13 @@
 extends Area2D
 
-var vacuum_large_ref
-var vacuum_small_ref
+var vacuum_large_ref # large area slow suck
+var vacuum_small_ref # small area fast suck
 
 var isBigSucked = false
 var isSmallSucked = false
 
-const FAST_SHRINK = .5
-const SLOW_SHRINK = .25
+const FAST_SHRINK = .01
+const SLOW_SHRINK = .005
 const SPEED = 50
 
 func _ready()->void:
@@ -27,6 +27,10 @@ func _process(delta: float) -> void:
 		isBigSucked = false
 		isSmallSucked = false
 	
-	if (isBigSucked || isSmallSucked):
-		print("Help, I am being sucked!")
-		pass
+	if (isBigSucked):
+		self.scale -= Vector2(SLOW_SHRINK, SLOW_SHRINK)
+	elif (isSmallSucked):
+		self.scale -= Vector2(FAST_SHRINK, FAST_SHRINK)
+		
+	if self.scale.x <= .5:
+		self.queue_free()
