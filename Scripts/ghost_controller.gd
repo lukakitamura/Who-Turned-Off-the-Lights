@@ -2,6 +2,7 @@ extends Area2D
 
 var vacuum_large_ref # large area slow suck
 var vacuum_small_ref # small area fast suck
+var camera_ref # reference to camera to keep ghosts within its bounds
 var animator
 
 var isBigSucked = false
@@ -34,21 +35,25 @@ func _process(delta: float) -> void:
 	
 	if (isBigSucked):
 		self.scale -= Vector2(SLOW_SHRINK, SLOW_SHRINK)
+		animator.play("panic")
 	elif (isSmallSucked):
 		self.scale -= Vector2(FAST_SHRINK, FAST_SHRINK)
+		animator.play("panic")
+	else:
+		if direction == 1:
+			animator.play("drift_right")
+		elif direction == -1:
+			animator.play("drift_left")
 		
 	if self.scale.x <= .5:
 		self.queue_free()
 		
-	if direction == 1:
-		animator.play("drift_right")
-	elif direction == -1:
-		animator.play("drift_left")
-		
 func _physics_process(delta: float) -> void:
 	if (isBigSucked):
-		pass
+		global_position.x = move_toward(self.global_position.x, vacuum_large_ref.global_position.x, .5)
+		global_position.y = move_toward(self.global_position.y, vacuum_large_ref.global_position.y, .5)
 	elif (isSmallSucked):
-		pass
+		global_position.x = move_toward(self.global_position.x, vacuum_small_ref.global_position.x, 1.5)
+		global_position.y = move_toward(self.global_position.y, vacuum_small_ref.global_position.y, 1.5)
 	else:
 		global_position.x += X_SPEED * delta * direction

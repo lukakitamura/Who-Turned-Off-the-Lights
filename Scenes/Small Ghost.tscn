@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c20woeuuwcl6q"]
+[gd_scene load_steps=23 format=3 uid="uid://c20woeuuwcl6q"]
 
 [ext_resource type="Script" uid="uid://6dlkioq685vv" path="res://Scripts/ghost_controller.gd" id="1_4qhty"]
 [ext_resource type="Texture2D" uid="uid://dh7tqpusyednx" path="res://Assets/gosth.png" id="2_ti3rv"]
@@ -38,6 +38,22 @@ region = Rect2(0, 50, 25, 25)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcbkt"]
 atlas = ExtResource("2_ti3rv")
 region = Rect2(0, 75, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn0hn"]
+atlas = ExtResource("2_ti3rv")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_givip"]
+atlas = ExtResource("2_ti3rv")
+region = Rect2(50, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8hfw"]
+atlas = ExtResource("2_ti3rv")
+region = Rect2(50, 50, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkyf5"]
+atlas = ExtResource("2_ti3rv")
+region = Rect2(50, 75, 25, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2a12"]
 atlas = ExtResource("2_ti3rv")
@@ -101,6 +117,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kn0hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_givip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8hfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkyf5")
+}],
+"loop": true,
+"name": &"panic",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k2a12")
 }, {
 "duration": 1.0,
@@ -120,7 +153,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"wave",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Small Ghost" type="Area2D"]
@@ -130,7 +163,8 @@ script = ExtResource("1_4qhty")
 shape = SubResource("CapsuleShape2D_0l4jh")
 
 [node name="Ghost Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.75, 2.75)
+scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_ydyqm")
-animation = &"drift_left"
+animation = &"panic"
 autoplay = "drift_left"
+frame_progress = 0.834881

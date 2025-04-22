@@ -11,10 +11,12 @@
 tile_map_data = PackedByteArray("AAAKAAIAAAACAAIAAAALAP//AAAEAAAAAAADAAIAAAACAAIAAAARAAIAAAABAAEAAAAPAP//AAAEAAAAAAASAP//AAAEAAAAAAAVAP//AAAEAAAAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, -48)
+zoom = Vector2(2.25, 2.25)
 script = ExtResource("1_vsvp5")
 
 [node name="Vacuum" parent="." instance=ExtResource("1_0ba56")]
-position = Vector2(-285, 3)
+position = Vector2(64, -104)
 
 [node name="Ghosts" type="Node2D" parent="."]
 position = Vector2(-96, -120)
@@ -23,4 +25,4 @@ position = Vector2(-96, -120)
 position = Vector2(448, 16)
 
 [node name="Small Ghost2" parent="Ghosts" instance=ExtResource("1_8rbpu")]
-position = Vector2(0, 192)
+position = Vector2(216, 120)
