@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dusmhhr0uodrd"]
+
+[ext_resource type="Texture2D" uid="uid://lmwislj7l1go" path="res://Assets/Buttons.png" id="1_0iato"]
+[ext_resource type="Script" uid="uid://d3lvji6xlonf4" path="res://Scripts/lights_controller.gd" id="2_1t7bb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t7bb"]
+atlas = ExtResource("1_0iato")
+region = Rect2(32, 16, 16, 16)
+
+[node name="Lights" type="Sprite2D"]
+self_modulate = Color(0.0588235, 0.0588235, 0.0588235, 0)
+z_index = 1
+position = Vector2(573, 319.5)
+scale = Vector2(1000, -41.711)
+texture = SubResource("AtlasTexture_1t7bb")
+script = ExtResource("2_1t7bb")

@@ -1,11 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dywchx2dkn88y"]
+[gd_scene load_steps=15 format=3 uid="uid://dywchx2dkn88y"]
 
 [ext_resource type="Script" uid="uid://dm5gl5gwnj42f" path="res://Scripts/alan_controller.gd" id="1_5b2de"]
 [ext_resource type="Texture2D" uid="uid://bfcfkgl4jit8d" path="res://Assets/Character Running (red).png" id="2_1156v"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ounvw"]
-atlas = ExtResource("2_1156v")
-region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1156v"]
 atlas = ExtResource("2_1156v")
@@ -49,14 +45,6 @@ region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uqcph"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ounvw")
-}],
-"loop": true,
-"name": &"cower",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1156v")
@@ -108,8 +96,9 @@ script = ExtResource("1_5b2de")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_uqcph")
-animation = &"cower"
+animation = &"run_away"
 autoplay = "walk_right"
+frame_progress = 0.12354
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)

@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=4 uid="uid://lkfimylrmp5f"]
+[gd_scene load_steps=7 format=4 uid="uid://lkfimylrmp5f"]
 
 [ext_resource type="PackedScene" uid="uid://dq0cdr0as7md6" path="res://Scenes/Vacuum.tscn" id="1_0ba56"]
 [ext_resource type="PackedScene" uid="uid://c20woeuuwcl6q" path="res://Scenes/Small Ghost.tscn" id="1_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://dbt6glhflffyk" path="res://Scenes/Haunted House Tile Map.tscn" id="1_fuudy"]
 [ext_resource type="Script" uid="uid://i3up0yfi8ae3" path="res://Scripts/camera_controller.gd" id="1_vsvp5"]
+[ext_resource type="PackedScene" uid="uid://dywchx2dkn88y" path="res://Scenes/Alan_Character.tscn" id="5_xylue"]
+[ext_resource type="PackedScene" uid="uid://dusmhhr0uodrd" path="res://Scenes/Lights.tscn" id="6_tj5wv"]
 
 [node name="Level" type="Node2D"]
 
+[node name="Lights" parent="." instance=ExtResource("6_tj5wv")]
+position = Vector2(7664, -144)
+
 [node name="TileMapLayer" parent="." instance=ExtResource("1_fuudy")]
-tile_map_data = PackedByteArray("AAAKAAIAAAACAAIAAAALAP//AAAEAAAAAAADAAIAAAACAAIAAAARAAIAAAABAAEAAAAPAP//AAAEAAAAAAASAP//AAAEAAAAAAAVAP//AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKAAIAAAACAAIAAAALAP//AAAEAAAAAAADAAIAAAACAAIAAAARAAIAAAABAAEAAAAPAP//AAAEAAAAAAASAP//AAAEAAAAAAAVAP//AAAEAAAAAAACAAUAAAAAAAcAAAABAAUAAAAAAAcAAAAAAAUAAAAAAAcAAAD//wUAAAAAAAcAAAD+/wUAAAAAAAcAAAD9/wUAAAAAAAcAAAD8/wUAAAAAAAcAAAD7/wUAAAAAAAcAAAD6/wUAAAAAAAcAAAD5/wUAAAAAAAcAAAD4/wUAAAAAAAcAAAD3/wUAAAAAAAcAAAD2/wUAAAAAAAcAAAD1/wUAAAAAAAcAAAAEAAUAAAAAAAcAAAAFAAUAAAAAAAcAAAAGAAUAAAAAAAcAAAAHAAUAAAAAAAcAAAAIAAUAAAAAAAcAAAAJAAUAAAAAAAcAAAAKAAUAAAAAAAcAAAALAAUAAAAAAAcAAAAMAAUAAAAAAAcAAAANAAUAAAAAAAcAAAAOAAUAAAAAAAcAAAAPAAUAAAAAAAcAAAAQAAUAAAAAAAcAAAARAAUAAAAAAAcAAAASAAUAAAAAAAcAAAATAAUAAAAAAAcAAAAUAAUAAAAAAAcAAAAVAAUAAAAAAAcAAAAWAAUAAAAAAAcAAAAXAAUAAAAAAAcAAAAYAAUAAAAAAAcAAAAZAAUAAAAAAAcAAAAaAAUAAAAAAAcAAAAbAAUAAAAAAAcAAAAcAAUAAAAAAAcAAAAdAAUAAAAAAAcAAAAeAAUAAAAAAAcAAAAfAAUAAAAAAAcAAAAgAAUAAAAAAAcAAAAhAAUAAAAAAAcAAAAiAAUAAAAAAAcAAAAjAAUAAAAAAAcAAAAkAAUAAAAAAAcAAAAlAAUAAAAAAAcAAAAmAAUAAAAAAAcAAAAnAAUAAAAAAAcAAAAoAAUAAAAAAAcAAAApAAUAAAAAAAcAAAAqAAUAAAAAAAcAAAArAAUAAAAAAAcAAAAsAAUAAAAAAAcAAAAtAAUAAAAAAAcAAAAuAAUAAAAAAAcAAAAvAAUAAAAAAAcAAAAwAAUAAAAAAAcAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, -48)
+position = Vector2(200, -112)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("1_vsvp5")
 
@@ -25,4 +30,10 @@ position = Vector2(-96, -120)
 position = Vector2(448, 16)
 
 [node name="Small Ghost2" parent="Ghosts" instance=ExtResource("1_8rbpu")]
-position = Vector2(216, 120)
+position = Vector2(216, 88)
+
+[node name="Small Ghost3" parent="Ghosts" instance=ExtResource("1_8rbpu")]
+position = Vector2(328, 40)
+
+[node name="Alan" parent="." instance=ExtResource("5_xylue")]
+position = Vector2(-112, 24)
