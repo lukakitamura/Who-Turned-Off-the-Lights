@@ -6,4 +6,4 @@ https://gleao.itch.io/haunted-house
 
 https://dyru.itch.io/pixel-ghost-template
 
-Hello
+Swirl and Swirl Animation generated using ChatGPT

@@ -167,4 +167,4 @@ scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_ydyqm")
 animation = &"panic"
 autoplay = "drift_left"
-frame_progress = 0.834881
+frame_progress = 0.229856

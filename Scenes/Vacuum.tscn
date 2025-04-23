@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dq0cdr0as7md6"]
+[gd_scene load_steps=18 format=3 uid="uid://dq0cdr0as7md6"]
 
 [ext_resource type="Script" uid="uid://cdlwc1j113jmw" path="res://Scripts/vacumm_controller.gd" id="1_bfgji"]
 [ext_resource type="Texture2D" uid="uid://lmwislj7l1go" path="res://Assets/Buttons.png" id="2_gil3x"]
-[ext_resource type="Texture2D" uid="uid://brltrrcyerjjv" path="res://Assets/Haunted House Tile Set.png" id="3_jgswy"]
+[ext_resource type="Texture2D" uid="uid://2bamjed7vg6f" path="res://Assets/Vacuum Swirl.png" id="3_jgswy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgswy"]
 atlas = ExtResource("2_gil3x")
@@ -21,39 +21,81 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13nwr"]
 atlas = ExtResource("3_jgswy")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx4tc"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8wun"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5x14"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(0, 512, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx4tc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_13nwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx4tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8wun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5x14")
 }],
 "loop": true,
-"name": &"default",
+"name": &"suck_up",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gil3x"]
-radius = 71.007
+radius = 36.0555
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8wun"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0if1q"]
 atlas = ExtResource("3_jgswy")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pymo"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twny6"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b06t3"]
+atlas = ExtResource("3_jgswy")
+region = Rect2(0, 512, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c5x14"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y8wun")
+"texture": SubResource("AtlasTexture_0if1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pymo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twny6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b06t3")
 }],
 "loop": true,
-"name": &"default",
+"name": &"suck_up",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgswy"]
-radius = 136.059
+radius = 71.007
 
 [node name="Vacuum" type="Node2D"]
 script = ExtResource("1_bfgji")
@@ -64,7 +106,12 @@ sprite_frames = SubResource("SpriteFrames_13nwr")
 [node name="Small Area" type="Area2D" parent="."]
 
 [node name="Small Area Sprite" type="AnimatedSprite2D" parent="Small Area"]
+z_index = -1
+position = Vector2(1, -1.19209e-07)
+scale = Vector2(0.161207, 0.187366)
 sprite_frames = SubResource("SpriteFrames_tx4tc")
+animation = &"suck_up"
+frame_progress = 0.0625231
 
 [node name="Small Area Collider" type="CollisionShape2D" parent="Small Area"]
 shape = SubResource("CircleShape2D_gil3x")
@@ -72,7 +119,12 @@ shape = SubResource("CircleShape2D_gil3x")
 [node name="Large Area" type="Area2D" parent="."]
 
 [node name="Large Area Sprite" type="AnimatedSprite2D" parent="Large Area"]
+z_index = -1
+position = Vector2(2, 1)
+scale = Vector2(0.316346, 0.334887)
 sprite_frames = SubResource("SpriteFrames_c5x14")
+animation = &"suck_up"
+frame_progress = 0.975318
 
 [node name="Large Area Collider" type="CollisionShape2D" parent="Large Area"]
 shape = SubResource("CircleShape2D_jgswy")
