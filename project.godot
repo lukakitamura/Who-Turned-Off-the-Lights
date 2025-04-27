@@ -15,6 +15,10 @@ run/main_scene="uid://lkfimylrmp5f"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="Final Project"
+
 [input]
 
 ui_small_zone={
