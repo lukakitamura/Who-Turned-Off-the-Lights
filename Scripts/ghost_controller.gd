@@ -38,8 +38,8 @@ func _ready()->void:
 	vacuum_large_ref = get_node("/root/Level/Vacuum").get_child(2)
 	vacuum_small_ref = get_node("/root/Level/Vacuum").get_child(1);
 	
-func _process(delta: float)->void:
-	leftEdge  = camera_ref.global_position.x - (get_viewport_rect().size.x * 0.5) / camera_ref.zoom.x
+func _process(_delta: float)->void:
+	leftEdge  = computeMinimumPointBoundary().x
 	
 	if(!stop_game):
 		if (vacuum_large_ref.overlaps_area(self)):
@@ -64,7 +64,7 @@ func _process(delta: float)->void:
 			elif direction == -1:
 				animator.play("drift_left")
 		
-		if self.scale.x <= .5 || self.scale.y <= .5:
+		if self.scale.x <= .5 && self.scale.y <= .5:
 			self.queue_free()
 			
 		if self.global_position.x < leftEdge:
@@ -82,8 +82,8 @@ func _physics_process(delta: float) -> void:
 			global_position.y = move_toward(self.global_position.y, vacuum_small_ref.global_position.y, .5)
 		else:
 			if (targetPlayer):
-				global_position.x = move_toward(self.global_position.x, player_ref.global_position.x, delta * X_SPEED)
-				global_position.y = move_toward(self.global_position.y, player_ref.global_position.y, delta * X_SPEED * 1.5)
+				global_position.x = move_toward(self.global_position.x, player_ref.global_position.x, delta * X_SPEED * 1.25)
+				global_position.y = move_toward(self.global_position.y, player_ref.global_position.y, delta * X_SPEED)
 			else:
 				global_position.x += X_SPEED * delta * direction
 
@@ -96,3 +96,9 @@ func _target_player(light_level: float)->void:
 		targetPlayer = false
 	else:
 		targetPlayer = true
+		
+func computeMinimumPointBoundary():
+	# Get view rectangle
+	var ctrans = get_canvas_transform()
+	var min_pos = (-ctrans.get_origin() / ctrans.get_scale())
+	return min_pos

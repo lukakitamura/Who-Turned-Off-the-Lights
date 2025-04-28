@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const WALK_SPEED = 30
-const RUN_AWAY = -75
+const RUN_AWAY = -100
 
 var animator
 
@@ -30,7 +30,7 @@ func _ready()->void:
 	
 	print("Alan's starting y-pos is ", global_position.y)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ghosts = get_tree().get_nodes_in_group("Ghosts") # updated list of all ghost in the scene
 
 func _physics_process(delta: float) -> void:

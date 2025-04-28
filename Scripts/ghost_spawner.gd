@@ -27,15 +27,12 @@ func _ready() -> void:
 	
 	camera_ref = get_node("/root/Level/Alan/Camera2D")
 
-func _process(delta: float) -> void:
-	camera_right_bounds = camera_ref.global_position.x + get_viewport().size.x * 0.5 / camera_ref.zoom.x
-	camera_upper_bounds = camera_ref.global_position.y - get_viewport().size.y * 0.5 / camera_ref.zoom.y
-	camera_lower_bounds = camera_ref.global_position.y + get_viewport().size.y * 0.5 / camera_ref.zoom.y
+func _process(delta: float) -> void:	
+	camera_upper_bounds = computeMinimumPointBoundary().y
+	camera_lower_bounds = computeMaximumPointBoundary().y
+	camera_right_bounds = computeMaximumPointBoundary().x
 	
-	camera_lower_bounds -= 16
-	camera_upper_bounds += 56
-	
-	# print(camera_right_bounds, " ", camera_upper_bounds, " ", camera_lower_bounds)
+	# print(camera_upper_bounds)
 	
 	spawnTimer += delta
 	
@@ -45,14 +42,32 @@ func _process(delta: float) -> void:
 	if spawnTimer >= SPAWN_TIME:
 		spawnTimer = 0
 		for i in range(spawnNumber):
+			pass
 			var newGhost = ghost.instantiate()
 			newGhost.scale.x = rng.randf_range(MIN_SIZE, MAX_SIZE)
 			
 			var x_pos =  rng.randf_range(camera_right_bounds - 8, camera_right_bounds)
-			var y_pos = rng.randf_range(camera_upper_bounds, camera_lower_bounds)
+			var y_pos = rng.randf_range(camera_upper_bounds + 32, camera_lower_bounds - 32)
 			print("Spawning at : ", x_pos, ", " , y_pos)
 			
 			newGhost.global_position.x = x_pos
 			newGhost.global_position.y = y_pos
 			newGhost.add_to_group("Ghosts")
 			add_child(newGhost)
+
+# Functions to compute max and min boundaries of camera 
+# Borrowed from some dude on the internet
+
+func computeMinimumPointBoundary():
+	# Get view rectangle
+	var ctrans = get_canvas_transform()
+	var min_pos = (-ctrans.get_origin() / ctrans.get_scale())
+	return min_pos
+
+func computeMaximumPointBoundary():
+	# Get view rectangle
+	var ctrans = get_canvas_transform()
+	var min_pos = -ctrans.get_origin() / ctrans.get_scale()
+	var view_size = get_viewport_rect().size / ctrans.get_scale()
+	var max_pos = min_pos + view_size
+	return max_pos
