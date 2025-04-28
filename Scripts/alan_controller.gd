@@ -9,6 +9,10 @@ var lights_ref
 var light_level = 1 # get value from scene (1 is max, 0 is off)
 
 var restart = false
+var restart_timer = false
+var timer = 0
+
+const RESTART_TIME = 1.5
 
 var ghosts
 
@@ -23,6 +27,8 @@ func _ready()->void:
 	animator = get_child(0)
 	
 	ghosts = get_tree().get_nodes_in_group("Ghosts") # inital list of all ghost in the scene
+	
+	print("Alan's starting y-pos is ", global_position.y)
 
 func _process(delta: float) -> void:
 	ghosts = get_tree().get_nodes_in_group("Ghosts") # updated list of all ghost in the scene
@@ -44,10 +50,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = RUN_AWAY
 		animator.flip_h = true
 		animator.play("run_away")
-		
-	move_and_slide()
+		restart_timer = true
 	
-	# get_slide_collision()
+	if restart:
+		timer += delta
+		
+	if timer > RESTART_TIME:
+		get_tree().reload_current_scene() # restart the game
+		
+	if (timer < RESTART_TIME):
+		move_and_slide()
 	
 	if ghosts.size() > 0: 
 		for ghost in ghosts:
