@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	camera_lower_bounds = camera_ref.global_position.y + get_viewport().size.y * 0.5 / camera_ref.zoom.y
 	
 	camera_lower_bounds -= 16
-	camera_upper_bounds += 16
+	camera_upper_bounds += 56
 	
 	# print(camera_right_bounds, " ", camera_upper_bounds, " ", camera_lower_bounds)
 	

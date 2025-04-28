@@ -33,14 +33,14 @@ func _ready()->void:
 	
 	camera_ref = get_node("/root/Level/Alan/Camera2D")
 	
-	leftEdge  = camera_ref.global_position.x - (get_viewport_rect().size.x * 0.5) / camera_ref.zoom.x
-	
 	animator = get_child(1)
 	
 	vacuum_large_ref = get_node("/root/Level/Vacuum").get_child(2)
 	vacuum_small_ref = get_node("/root/Level/Vacuum").get_child(1);
 	
 func _process(delta: float)->void:
+	leftEdge  = camera_ref.global_position.x - (get_viewport_rect().size.x * 0.5) / camera_ref.zoom.x
+	
 	if(!stop_game):
 		if (vacuum_large_ref.overlaps_area(self)):
 			isBigSucked = true
@@ -64,7 +64,7 @@ func _process(delta: float)->void:
 			elif direction == -1:
 				animator.play("drift_left")
 		
-		if self.scale.x <= .5:
+		if self.scale.x <= .5 || self.scale.y <= .5:
 			self.queue_free()
 			
 		if self.global_position.x < leftEdge:
