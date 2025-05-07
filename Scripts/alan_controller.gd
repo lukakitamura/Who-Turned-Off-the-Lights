@@ -22,7 +22,8 @@ signal stop_game # signal to tell other objects to stop moving
 
 func _ready()->void:
 	lights_ref = get_node("/root/Level/Lights")
-	lights_ref.light_level.connect(_set_light_level)
+	if lights_ref != null:
+		lights_ref.light_level.connect(_set_light_level)
 	
 	animator = get_child(0)
 	

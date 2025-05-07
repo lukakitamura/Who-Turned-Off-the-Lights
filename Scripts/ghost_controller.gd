@@ -29,7 +29,8 @@ func _ready()->void:
 	player_ref.stop_game.connect(_stop_game)
 	
 	light_ref = get_node("/root/Level/Lights")
-	light_ref.light_level.connect(_target_player)
+	if light_ref != null:
+		light_ref.light_level.connect(_target_player)
 	
 	camera_ref = get_node("/root/Level/Alan/Camera2D")
 	

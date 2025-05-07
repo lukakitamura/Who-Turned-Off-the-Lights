@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=4 uid="uid://cwi0fgpe4mbvl"]
+
+[ext_resource type="PackedScene" uid="uid://dbt6glhflffyk" path="res://Scenes/Haunted House Tile Map.tscn" id="1_n6n6q"]
+[ext_resource type="PackedScene" uid="uid://dywchx2dkn88y" path="res://Scenes/Alan_Character.tscn" id="2_rm7fy"]
+[ext_resource type="Script" uid="uid://bb65a23ohenm7" path="res://Scripts/start_player_controller.gd" id="3_7d7wm"]
+[ext_resource type="PackedScene" uid="uid://dusmhhr0uodrd" path="res://Scenes/Lights.tscn" id="4_2n2a2"]
+[ext_resource type="Script" uid="uid://rbuho4p50fhl" path="res://Scripts/start_trigger.gd" id="5_gggut"]
+[ext_resource type="Script" uid="uid://b2m44iggpy3uu" path="res://Scenes/start_lights.gd" id="5_rm7fy"]
+[ext_resource type="PackedScene" uid="uid://c20woeuuwcl6q" path="res://Scenes/Small Ghost.tscn" id="6_dhceh"]
+[ext_resource type="FontFile" uid="uid://cket3w5k843m" path="res://Assets/fonts/architect-s-daughter/ArchitectsDaughter.ttf" id="8_7d7wm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jena"]
+size = Vector2(20, 80)
+
+[node name="Start Screen" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [649.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, -120)
+zoom = Vector2(3.7, 2)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_n6n6q")]
+tile_map_data = PackedByteArray("AAAGAAEAAAAAAAcAAAAHAAEAAAAAAAcAAAAIAAEAAAAAAAcAAAAJAAEAAAAAAAcAAAAKAAEAAAAAAAcAAAALAAEAAAAAAAcAAAAMAAEAAAAAAAcAAAANAAEAAAAAAAcAAAAOAAEAAAAAAAcAAAAPAAEAAAAAAAcAAAAQAAEAAAAAAAcAAAARAAEAAAAAAAcAAAASAAEAAAAAAAcAAAATAAEAAAAAAAcAAAAUAAEAAAAAAAcAAAAVAAEAAAAAAAcAAAAWAAEAAAAAAAcAAAAXAAEAAAAAAAcAAAAGAP//AAAEAAYAAAAGAP7/AAAEAAYAAAAGAP3/AAAEAAYAAAAGAPz/AAAEAAYAAAAGAPv/AAAEAAYAAAAGAPr/AAAEAAYAAAAGAPn/AAAEAAYAAAAGAPj/AAAEAAYAAAAGAPf/AAAEAAYAAAAGAPb/AAAEAAYAAAAGAPX/AAAEAAYAAAAGAPT/AAAEAAYAAAAGAPP/AAAEAAYAAAAGAPL/AAAEAAYAAAAGAPH/AAAEAAYAAAAGAPD/AAAEAAYAAAAGAO//AAAEAAYAAAAIAO//AAAEAAYAAAAIAPD/AAAEAAYAAAAIAPH/AAAEAAYAAAAIAPL/AAAEAAYAAAAIAPP/AAAEAAYAAAAIAPT/AAAEAAYAAAAIAPX/AAAEAAYAAAAIAPb/AAAEAAYAAAAIAPf/AAAEAAYAAAAIAPj/AAAEAAYAAAAIAPn/AAAEAAYAAAAIAPr/AAAEAAYAAAAIAPv/AAAEAAYAAAAIAPz/AAAEAAYAAAAIAP3/AAAEAAYAAAAIAP7/AAAEAAYAAAAIAP//AAAEAAYAAAAKAPr/AAAEAAYAAAAKAPn/AAAEAAYAAAAKAPj/AAAEAAYAAAAKAPf/AAAEAAYAAAAKAPb/AAAEAAYAAAAKAPX/AAAEAAYAAAAKAPT/AAAEAAYAAAAKAPP/AAAEAAYAAAAKAPL/AAAEAAYAAAAKAPH/AAAEAAYAAAAKAPD/AAAEAAYAAAAKAO//AAAEAAYAAAAMAO//AAAEAAYAAAAMAPD/AAAEAAYAAAAMAPH/AAAEAAYAAAAMAPL/AAAEAAYAAAAMAPP/AAAEAAYAAAAMAPT/AAAEAAYAAAAMAPn/AAAEAAYAAAAMAPr/AAAEAAYAAAAMAPv/AAAEAAYAAAAMAPz/AAAEAAYAAAAMAP3/AAAEAAYAAAAMAP7/AAAEAAYAAAAMAP//AAAEAAYAAAAOAP//AAAEAAYAAAAOAP7/AAAEAAYAAAAOAP3/AAAEAAYAAAAOAPz/AAAEAAYAAAAOAPv/AAAEAAYAAAAOAPr/AAAEAAYAAAAOAPn/AAAEAAYAAAAOAPj/AAAEAAYAAAAOAPf/AAAEAAYAAAAOAPb/AAAEAAYAAAAOAPX/AAAEAAYAAAAOAPT/AAAEAAYAAAAOAPP/AAAEAAYAAAAOAPL/AAAEAAYAAAAOAPH/AAAEAAYAAAAOAPD/AAAEAAYAAAAOAO//AAAEAAYAAAAQAO//AAAEAAYAAAAQAPD/AAAEAAYAAAAQAPH/AAAEAAYAAAAQAPL/AAAEAAYAAAAQAPP/AAAEAAYAAAAQAPT/AAAEAAYAAAAQAPX/AAAEAAYAAAAQAPb/AAAEAAYAAAAQAPf/AAAEAAYAAAAQAPj/AAAEAAYAAAAQAPn/AAAEAAYAAAAQAPr/AAAEAAYAAAAQAPv/AAAEAAYAAAAQAPz/AAAEAAYAAAAQAP3/AAAEAAYAAAAQAP7/AAAEAAYAAAAQAP//AAAEAAYAAAASAP//AAAEAAYAAAASAP7/AAAEAAYAAAASAP3/AAAEAAYAAAASAPz/AAAEAAYAAAASAPv/AAAEAAYAAAASAPr/AAAEAAYAAAASAPn/AAAEAAYAAAASAPj/AAAEAAYAAAASAPf/AAAEAAYAAAASAPb/AAAEAAYAAAASAPX/AAAEAAYAAAASAPT/AAAEAAYAAAASAPP/AAAEAAYAAAASAPL/AAAEAAYAAAASAPH/AAAEAAYAAAASAPD/AAAEAAYAAAASAO//AAAEAAYAAAAUAO//AAAEAAYAAAAUAPD/AAAEAAYAAAAUAPH/AAAEAAYAAAAUAPL/AAAEAAYAAAAUAPP/AAAEAAYAAAAUAPT/AAAEAAYAAAAUAPX/AAAEAAYAAAAUAPb/AAAEAAYAAAAUAPf/AAAEAAYAAAAUAPj/AAAEAAYAAAAUAPn/AAAEAAYAAAAUAPr/AAAEAAYAAAAUAPv/AAAEAAYAAAAUAPz/AAAEAAYAAAAUAP3/AAAEAAYAAAAUAP7/AAAEAAYAAAAUAP//AAAEAAYAAAAWAP//AAAEAAYAAAAWAP7/AAAEAAYAAAAWAP3/AAAEAAYAAAAWAPz/AAAEAAYAAAAWAPv/AAAEAAYAAAAWAPr/AAAEAAYAAAAWAPn/AAAEAAYAAAAWAPj/AAAEAAYAAAAWAPf/AAAEAAYAAAAWAPb/AAAEAAYAAAAWAPX/AAAEAAYAAAAWAPT/AAAEAAYAAAAWAPP/AAAEAAYAAAAWAPL/AAAEAAYAAAAWAPH/AAAEAAYAAAAWAPD/AAAEAAYAAAAWAO//AAAEAAYAAAAXAO//AAAEAAYAAAAXAPD/AAAEAAYAAAAXAPH/AAAEAAYAAAAXAPL/AAAEAAYAAAAXAPP/AAAEAAYAAAAXAPT/AAAEAAYAAAAXAPX/AAAEAAYAAAAXAPb/AAAEAAYAAAAXAPf/AAAEAAYAAAAXAPj/AAAEAAYAAAAXAPn/AAAEAAYAAAAXAPr/AAAEAAYAAAAXAPv/AAAEAAYAAAAXAPz/AAAEAAYAAAAXAP3/AAAEAAYAAAAXAP7/AAAEAAYAAAAXAP//AAAEAAYAAAAPAP3/AAAFAAEAAAATAP3/AAADAAQAAAARAPb/AAAEAAAAAAAPAPn/AAADAAAAAAANAPb/AAAEAAAAAAANAPT/AAAGAAAAAAARAPT/AAAGAAAAAAAMAPb/AAAGAAYAAAAMAPf/AAAGAAYAAAAKAPz/AAAFAAYAAAAKAP3/AAAFAAYAAAAKAP7/AAAFAAYAAAAKAP//AAAFAAYAAAALAP3/AAADAAQAAAA=")
+
+[node name="Start Alan" parent="." instance=ExtResource("2_rm7fy")]
+position = Vector2(116, -10)
+script = ExtResource("3_7d7wm")
+
+[node name="Start Lights" parent="." instance=ExtResource("4_2n2a2")]
+self_modulate = Color(0.0588235, 0.0588235, 0.0588235, 1)
+position = Vector2(571, -113)
+script = ExtResource("5_rm7fy")
+
+[node name="Start Trigger" type="Area2D" parent="."]
+position = Vector2(249, -37)
+script = ExtResource("5_gggut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start Trigger"]
+shape = SubResource("RectangleShape2D_2jena")
+
+[node name="Aesthetic Ghosts" type="Node2D" parent="."]
+position = Vector2(350, -120)
+
+[node name="Small Ghost" parent="Aesthetic Ghosts" instance=ExtResource("6_dhceh")]
+position = Vector2(1, 87)
+script = null
+
+[node name="Small Ghost3" parent="Aesthetic Ghosts" instance=ExtResource("6_dhceh")]
+position = Vector2(-223, 2)
+scale = Vector2(-1, 1)
+script = null
+
+[node name="Small Ghost4" parent="Aesthetic Ghosts" instance=ExtResource("6_dhceh")]
+position = Vector2(-185, -62)
+script = null
+
+[node name="Small Ghost2" parent="Aesthetic Ghosts" instance=ExtResource("6_dhceh")]
+position = Vector2(3, -64)
+script = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.164
+anchor_right = 0.349
+anchor_bottom = 0.164
+offset_left = -0.0480042
+offset_top = -0.272003
+offset_right = 454.952
+offset_bottom = 194.728
+theme_override_colors/default_color = Color(0.976471, 0.490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_7d7wm")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 21
+text = "WHO TURNED OFF THE LIGHTS!?!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Start Trigger" to="Start Trigger" method="_on_body_entered"]
