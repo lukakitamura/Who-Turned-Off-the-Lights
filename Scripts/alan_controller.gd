@@ -62,6 +62,16 @@ func _physics_process(delta: float) -> void:
 	if (timer < RESTART_TIME):
 		move_and_slide()
 	
+	#handle colliding with rigidbody2d ghosts
+	for i in get_slide_collision_count():
+		var phantoms = get_slide_collision(i)
+		var coll = phantoms.get_collider()
+		if coll.is_in_group("Phantom"):
+			restart = true
+			stop_game.emit()
+	
+	
+	# handle colliding with area2d ghosts
 	if ghosts.size() > 0: 
 		for ghost in ghosts:
 			if (ghost != null):
