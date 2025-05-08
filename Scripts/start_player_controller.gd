@@ -6,9 +6,9 @@ var light_ref
 var start_game = false
 
 func _ready() -> void:
-	light_ref = get_node("/root/Start Screen/Start Lights")
-	
-	light_ref.light_level.connect(_start_game)
+	if has_node("/root/Start Screen/Start Lights"):
+		light_ref = get_node("/root/Start Screen/Start Lights")
+		light_ref.light_level.connect(_start_game)
 	
 func _process(delta: float) -> void:
 	if start_game == true:

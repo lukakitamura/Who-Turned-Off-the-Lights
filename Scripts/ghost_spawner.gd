@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			newGhost.scale.x = rng.randf_range(MIN_SIZE, MAX_SIZE)
 			
 			var x_pos =  rng.randf_range(camera_right_bounds - 8, camera_right_bounds)
-			var y_pos = rng.randf_range(camera_upper_bounds + 32, camera_lower_bounds - 32)
+			var y_pos = rng.randf_range(camera_upper_bounds + 64, camera_lower_bounds - 32)
 			print("Spawning at : ", x_pos, ", " , y_pos)
 			
 			newGhost.global_position.x = x_pos

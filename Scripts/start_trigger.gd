@@ -7,12 +7,10 @@ var GAME_SCENE
 
 func _ready() -> void:
 	player_ref = get_node("/root/Start Screen/Start Alan")
-	
-	GAME_SCENE = preload("res://Scenes/Level.tscn")
 
 func _process(delta: float) -> void:
 	if start_game:
-		get_tree().change_scene_to_packed(GAME_SCENE)
+		get_tree().change_scene_to_file("res://Scenes/Level.tscn")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == player_ref.name:

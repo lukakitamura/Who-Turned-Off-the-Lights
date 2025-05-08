@@ -14,8 +14,8 @@ var isBigSucked = false
 var isSmallSucked = false
 var targetPlayer = false # whether to go after player or not
 
-const FAST_SHRINK = .01
-const SLOW_SHRINK = .005
+const FAST_SHRINK = .075
+const SLOW_SHRINK = .01
 const X_SPEED = 20
 
 var rng
