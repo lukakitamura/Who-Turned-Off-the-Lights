@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 			global_position.x = move_toward(self.global_position.x, vacuum_small_ref.global_position.x, .5)
 			global_position.y = move_toward(self.global_position.y, vacuum_small_ref.global_position.y, .5)
 		else:
-			self.linear_velocity.y = 1.5
+			self.linear_velocity.y = 2
 
 func _stop_game()->void:
 	stop_game = true

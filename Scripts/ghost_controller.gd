@@ -65,7 +65,7 @@ func _process(_delta: float)->void:
 			elif direction == -1:
 				animator.play("drift_left")
 		
-		if self.scale.x <= .5 && self.scale.y <= .5:
+		if self.scale.x <= .5 || self.scale.y <= .5:
 			self.queue_free()
 			
 		if self.global_position.x < leftEdge:

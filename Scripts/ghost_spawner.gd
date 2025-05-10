@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 	if spawnTimer >= SPAWN_TIME:
 		spawnTimer = 0
 		for i in range(spawnNumber):
-			pass
 			var newGhost = ghost.instantiate()
 			newGhost.scale.x = rng.randf_range(MIN_SIZE, MAX_SIZE)
 			

@@ -355,6 +355,7 @@ radius = 22.0
 height = 64.0
 
 [node name="Immovable Ghost" type="RigidBody2D"]
+self_modulate = Color(1, 1, 1, 0.47451)
 lock_rotation = true
 script = ExtResource("1_sg373")
 
