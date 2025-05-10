@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bah06bfqhjap2"]
+
+[ext_resource type="Texture2D" uid="uid://cfewrpqixnwgv" path="res://Assets/characters.png" id="1_646qc"]
+[ext_resource type="Script" uid="uid://d1js00bckotlh" path="res://Scripts/girlfriend_controller.gd" id="1_cnwi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtc8g"]
+atlas = ExtResource("1_646qc")
+region = Rect2(80, 128, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyaj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtc8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_appm2"]
+
+[node name="Girlfriend" type="CharacterBody2D"]
+script = ExtResource("1_cnwi5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_yyaj3")
+frame_progress = 0.486778
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_appm2")
