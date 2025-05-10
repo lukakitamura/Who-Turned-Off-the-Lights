@@ -43,8 +43,7 @@ func _ready()->void:
 	
 func _process(delta: float)->void:
 	if (!stop_game):
-		# print(vacuum_power)
-	
+		print(vacuum_power)
 		self.global_position = get_global_mouse_position()
 	
 		if (Input.is_action_just_released("ui_small_zone") || Input.is_action_just_released("ui_large_zone")):
@@ -78,8 +77,8 @@ func _process(delta: float)->void:
 			large_zone_ref.monitoring = false
 			large_zone_animator.stop()
 	
-		if (vacuum_power < 100 && has_released):
-				vacuum_power += 20 * delta
+		if (vacuum_power < 100 && Input.is_action_just_pressed("ui_charge") && has_released):
+				vacuum_power += 1
 	
 		if (vacuum_power <= 0):
 			can_suck = false

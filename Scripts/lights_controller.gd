@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("ui_quit"):
 			reset = true
 		#print(get_input_vector().x)
-		print(Input.get_connected_joypads())
+		#print(Input.get_connected_joypads())
 		# print(self_modulate.a)
 	else:
 		self_modulate.a = 1 #turn lights off if player gives up
