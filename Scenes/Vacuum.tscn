@@ -98,6 +98,7 @@ animations = [{
 radius = 46.0109
 
 [node name="Vacuum" type="Node2D"]
+z_index = 5
 script = ExtResource("1_bfgji")
 
 [node name="Vacuum Sprite" type="AnimatedSprite2D" parent="."]

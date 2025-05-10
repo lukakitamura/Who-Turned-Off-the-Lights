@@ -109,6 +109,7 @@ script = ExtResource("1_5b2de")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_uqcph")
 animation = &"walk_right"
+frame_progress = 0.505035
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)

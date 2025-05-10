@@ -17,6 +17,8 @@ var has_released = true # holding button down forever
 var stop_game = false
 
 func _ready()->void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	
 	player_ref = get_node("/root/Level/Alan")
 	
 	player_ref.stop_game.connect(_stop_game)

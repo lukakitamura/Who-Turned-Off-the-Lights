@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	
 	spawnTimer += delta
 	
-	if spawnTimer >= 32:
+	if spawnTimer >= 24:
 		spawnNumber += 1
 	
 	if spawnTimer >= SPAWN_TIME:

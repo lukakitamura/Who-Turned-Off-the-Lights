@@ -14,7 +14,7 @@ var isBigSucked = false
 var isSmallSucked = false
 var targetPlayer = false # whether to go after player or not
 
-const FAST_SHRINK = .075
+const FAST_SHRINK = .03
 const SLOW_SHRINK = .01
 const X_SPEED = 20
 
@@ -76,15 +76,15 @@ func _process(_delta: float)->void:
 func _physics_process(delta: float) -> void:
 	if (!stop_game):
 		if (isBigSucked):
-			global_position.x = move_toward(self.global_position.x, vacuum_large_ref.global_position.x, .25)
-			global_position.y = move_toward(self.global_position.y, vacuum_large_ref.global_position.y, .25)
+			global_position.x = move_toward(self.global_position.x, vacuum_large_ref.global_position.x, .15)
+			global_position.y = move_toward(self.global_position.y, vacuum_large_ref.global_position.y, .15)
 		elif (isSmallSucked):
-			global_position.x = move_toward(self.global_position.x, vacuum_small_ref.global_position.x, .5)
-			global_position.y = move_toward(self.global_position.y, vacuum_small_ref.global_position.y, .5)
+			global_position.x = move_toward(self.global_position.x, vacuum_small_ref.global_position.x, .25)
+			global_position.y = move_toward(self.global_position.y, vacuum_small_ref.global_position.y, .25)
 		else:
 			if (targetPlayer):
 				global_position.x = move_toward(self.global_position.x, player_ref.global_position.x, delta * X_SPEED * 1.25)
-				global_position.y = move_toward(self.global_position.y, player_ref.global_position.y, delta * X_SPEED)
+				global_position.y = move_toward(self.global_position.y, player_ref.global_position.y, delta * X_SPEED * .75)
 			else:
 				global_position.x += X_SPEED * delta * direction
 
