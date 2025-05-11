@@ -16,6 +16,8 @@ var can_suck = false
 var has_released = true # holding button down forever
 var stop_game = false
 
+var inputVector = Vector2.ONE 
+
 func _ready()->void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
@@ -42,6 +44,7 @@ func _ready()->void:
 	small_zone_ref.monitorable = false 
 	
 func _process(delta: float)->void:
+	
 	if (!stop_game):
 		print(vacuum_power)
 		self.global_position = get_global_mouse_position()
@@ -54,13 +57,13 @@ func _process(delta: float)->void:
 				small_zone_ref.visible = true
 				small_zone_ref.monitoring = true
 				small_zone_animator.play("suck_up")
-				vacuum_power -= 20 * delta
+				#vacuum_power -= 20 * delta
 				has_released = false
 			elif (Input.is_action_pressed("ui_large_zone")):
 				large_zone_ref.visible = true
 				large_zone_ref.monitoring = true
 				large_zone_animator.play("suck_up")
-				vacuum_power -= 30 * delta
+				#vacuum_power -= 30 * delta
 				has_released = false
 			else:
 				small_zone_ref.visible = false
@@ -77,8 +80,9 @@ func _process(delta: float)->void:
 			large_zone_ref.monitoring = false
 			large_zone_animator.stop()
 	
-		if (vacuum_power < 100 && Input.is_action_just_pressed("ui_charge") && has_released):
-				vacuum_power += 1
+		#if (vacuum_power < 100 && Input.is_action_just_pressed("ui_charge") && has_released):
+				#vacuum_power += 1
+		vacuum_power = get_input_vector().x
 	
 		if (vacuum_power <= 0):
 			can_suck = false
@@ -103,3 +107,7 @@ func _process(delta: float)->void:
 
 func _stop_game()->void:
 	stop_game = true
+	
+func get_input_vector():
+	inputVector.x = remap(Input.get_action_strength("ui_charge"), 0, 1, 0, 100)
+	return inputVector 

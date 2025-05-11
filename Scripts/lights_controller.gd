@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	else:
 		self_modulate.a = 1 #turn lights off if player gives up
 		timer -= delta
-		
+	print(reset)
 	if timer <= 0:
 		get_tree().change_scene_to_file("res://Scenes/Start Screen.tscn")
 
