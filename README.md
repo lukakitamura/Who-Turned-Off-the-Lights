@@ -10,5 +10,15 @@ Swirl and Swirl Animation generated using ChatGPT
 
 https://broken-pixel-studio.itch.io/ogreghostskeletonandtauruspixelartsprites
 
-To be added:
-	For Jordan - ghost spawner (working on it), ghost floating, start screen, end condition
+## Requirements: 
+- Godot 4.4
+- Hardware:
+  - Linear potentiometer
+  - Rotary encoder
+  - MCU with HID capabilities x 3
+  - MPU6050
+  - Switches/Buttons
+  - 7-segment LED display
+  - Vibration motor
+  - 3 position slide switch
+  - 
